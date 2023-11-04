@@ -1,5 +1,4 @@
 import { expect } from "chai";
-import { Contract } from "ethers";
 // Project
 import * as constants from "./Constants";
 import * as utils from "./Utils";
@@ -54,7 +53,7 @@ describe("StrategicClubErc20Splitter.Split", () => {
       max_token_amount
     );
     await test_ctx.splitter.setSecondaryAddresses([]);
-  
+
     await test_ctx.mock_erc20
       .connect(test_ctx.accounts.owner)
       .transfer(test_ctx.splitter.address, token_amount);
