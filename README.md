@@ -1,3 +1,7 @@
+# Strategic Club NFTs
+[![Build](https://github.com/ebellocchia/strategic_club_nfts/actions/workflows/build.yml/badge.svg)](https://github.com/ebellocchia/strategic_club_nfts/actions/workflows/build.yml)
+[![Test](https://github.com/ebellocchia/strategic_club_nfts/actions/workflows/test.yml/badge.svg)](https://github.com/ebellocchia/strategic_club_nfts/actions/workflows/test.yml)
+
 # Description
 
 Smart contracts for [Strategic Club](https://strategicclub.io/) NFTs:
@@ -9,3 +13,7 @@ Smart contracts for [Strategic Club](https://strategicclub.io/) NFTs:
 - `StrategicClubNftCollection1`: NFT collection 1
 - `StrategicClubNftCollection2`: NFT collection 2
 - `StrategicClubTickets`: NFT for club event tickets
+
+# License
+
+This software is available under the MIT license.
