@@ -1,0 +1,52 @@
+# This workflow will install dependencies and build the contract
+
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set Node.js 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+    - name: Install yarn
+      run: |
+        npm i -g yarn
+    # ERC20 Splitter
+    - name: Build ERC20 Splitter contract
+      run: |
+        cd strategic_club_erc20_splitter
+        npm i --include=dev
+        yarn compile
+    # NFT managers
+    - name: Build NFT managers contract
+      run: |
+        cd ../strategic_club_nft_managers
+        npm i --include=dev
+        yarn compile
+    # NFT collection 1
+    - name: Build NFT collection 1 contract
+      run: |
+        cd ../strategic_club_nft_collection_1
+        npm i --include=dev
+        yarn compile
+    # NFT collection 2
+    - name: Build NFT collection 2 contract
+      run: |
+        cd ../strategic_club_nft_collection_2
+        npm i --include=dev
+        yarn compile
+    # Tickets NFT
+    - name: Build tickets NFT contract
+      run: |
+        cd ../strategic_club_tickets
+        npm i --include=dev
+        yarn compile
