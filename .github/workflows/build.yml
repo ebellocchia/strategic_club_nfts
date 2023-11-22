@@ -29,24 +29,24 @@ jobs:
     # NFT managers
     - name: Build NFT managers contract
       run: |
-        cd ../strategic_club_nft_managers
+        cd strategic_club_nft_managers
         npm i --include=dev
         yarn compile
     # NFT collection 1
     - name: Build NFT collection 1 contract
       run: |
-        cd ../strategic_club_nft_collection_1
+        cd strategic_club_nft_collection_1
         npm i --include=dev
         yarn compile
     # NFT collection 2
     - name: Build NFT collection 2 contract
       run: |
-        cd ../strategic_club_nft_collection_2
+        cd strategic_club_nft_collection_2
         npm i --include=dev
         yarn compile
     # Tickets NFT
     - name: Build tickets NFT contract
       run: |
-        cd ../strategic_club_tickets
+        cd strategic_club_tickets
         npm i --include=dev
         yarn compile
