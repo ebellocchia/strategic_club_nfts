@@ -2,7 +2,7 @@
   "name": "strategic_club_erc20_splitter",
   "author": "Emanuele Bellocchia",
   "description": "Strategic Club Splitter for ERC20 tokens",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "repository": {
     "type": "git",
