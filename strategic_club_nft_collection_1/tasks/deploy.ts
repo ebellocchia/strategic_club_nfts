@@ -1,4 +1,4 @@
-import { BigNumber, Contract, ContractFactory } from "ethers";
+import { BigNumber, Contract, ContractFactory, ContractTransaction } from "ethers";
 import { task } from "hardhat/config";
 
 task("deploy", "Deploy contract")
@@ -42,7 +42,8 @@ task("upgrade-to", "Upgrade contract")
     console.log("Upgrading contract...");
 
     const proxy_instance: Contract = await nft_contract_factory.attach(taskArgs.proxyAddr);
-    proxy_instance.upgradeTo(nft_logic_instance.address);
+    const tx: ContractTransaction = await proxy_instance.upgradeTo(nft_logic_instance.address);
 
     console.log(`StrategicClubNftCollection1 updated logic deployed to ${nft_logic_instance.address}`);
+    console.log(`Transaction hash: ${tx.hash}`);
   });

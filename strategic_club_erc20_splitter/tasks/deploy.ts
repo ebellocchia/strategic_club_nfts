@@ -1,4 +1,4 @@
-import { BigNumber, Contract, ContractFactory } from "ethers";
+import { BigNumber, Contract, ContractFactory, ContractTransaction } from "ethers";
 import { task } from "hardhat/config";
 import { splitString } from "./utils";
 
@@ -22,7 +22,7 @@ task("deploy", "Deploy contract")
     const logic_instance: Contract = await contract_factory
       .deploy();
     await logic_instance.deployed();
-  
+
     console.log("Deploying contract proxy...");
 
     const proxy_contract_factory: ContractFactory = await hre.ethers.getContractFactory("ERC1967Proxy");
@@ -48,11 +48,12 @@ task("upgrade-to", "Upgrade contract")
     const logic_instance: Contract = await contract_factory
       .deploy();
     await logic_instance.deployed();
-  
+
     console.log("Upgrading contract...");
 
     const proxy_instance: Contract = await contract_factory.attach(taskArgs.proxyAddr);
-    proxy_instance.upgradeTo(logic_instance.address);
+    const tx: ContractTransaction = await proxy_instance.upgradeTo(logic_instance.address);
 
     console.log(`StrategicClubErc20Splitter updated logic deployed to ${logic_instance.address}`);
+    console.log(`Transaction hash: ${tx.hash}`);
   });

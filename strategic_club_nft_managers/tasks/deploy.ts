@@ -1,4 +1,4 @@
-import { BigNumber, Contract, ContractFactory } from "ethers";
+import { BigNumber, Contract, ContractFactory, ContractTransaction } from "ethers";
 import { task } from "hardhat/config";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 
@@ -154,9 +154,10 @@ task("upgrade-auction-to", "Upgrade auction contract")
 
     const proxy_instance: Contract = await (await hre.ethers.getContractFactory("StrategicClubNftsAuction"))
       .attach(taskArgs.proxyAddr);
-    proxy_instance.upgradeTo(auction_logic.address);
+    const tx: ContractTransaction = await proxy_instance.upgradeTo(auction_logic.address);
 
     console.log(`StrategicClubNftsAuction updated logic deployed to ${auction_logic.address}`);
+    console.log(`Transaction hash: ${tx.hash}`);
   });
 
 task("upgrade-redeemer-to", "Upgrade redeemer contract")
@@ -170,9 +171,10 @@ task("upgrade-redeemer-to", "Upgrade redeemer contract")
 
     const proxy_instance: Contract = await (await hre.ethers.getContractFactory("StrategicClubNftsRedeemer"))
       .attach(taskArgs.proxyAddr);
-    proxy_instance.upgradeTo(redeemer_logic.address);
+    const tx: ContractTransaction = await proxy_instance.upgradeTo(redeemer_logic.address);
 
     console.log(`StrategicClubNftsRedeemer updated logic deployed to ${redeemer_logic.address}`);
+    console.log(`Transaction hash: ${tx.hash}`);
   });
 
 task("upgrade-minter-to", "Upgrade minter contract")
@@ -186,7 +188,8 @@ task("upgrade-minter-to", "Upgrade minter contract")
 
     const proxy_instance: Contract = await (await hre.ethers.getContractFactory("StrategicClubNftsMinter"))
       .attach(taskArgs.proxyAddr);
-    proxy_instance.upgradeTo(minter_logic.address);
+    const tx: ContractTransaction = await proxy_instance.upgradeTo(minter_logic.address);
 
     console.log(`StrategicClubNftsMinter updated logic deployed to ${minter_logic.address}`);
+    console.log(`Transaction hash: ${tx.hash}`);
   });
