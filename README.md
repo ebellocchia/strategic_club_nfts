@@ -4,7 +4,7 @@
 
 # Description
 
-Smart contracts for [Strategic Club](https://strategicclub.io/) NFTs:
+Smart contracts for Strategic Club NFTs:
 
 - `StrategicClubErc20Splitter`: smart contract for splitting ERC20 tokens received from NFT minting/auctioning among multiple wallets
 - `StrategicClubNftsAuction`: smart contract for auctioning NFTs by bidding with ERC20 tokens
